@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background: #357;
+    background: url(../img/7.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: cursive;
+    color: #fff;
+    width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    height: 100%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.nav {
+    padding: 1rem 0.5rem;
+    /* margin-top: 1rem; */
+    margin-bottom: 1.5rem;
+    background: rgba(2, 178, 201, 0.486);
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    max-height: 450px;
+    border-radius: 10px;
+    overflow: auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.card {
+    cursor: pointer;
+    width: 100%;
+    height: 200px;
+    aspect-ratio: 3/4;
+    border: 4px double green;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: all 1s;
+    perspective: preserve-3d;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+}
+
+.front,
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    background: transparent;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
+.certo {
+    filter: saturate(0.5);
+    opacity: 0.7;
+    -webkit-filter: saturate(0.5);
+}
+
+.card .front {
+    z-index: 10;
+    background: #679;
+}
+
+.card .front h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.show {
+    transform: skew(180deg);
+    border-color: #e0f;
+    -webkit-transform: skew(180deg);
+    -moz-transform: skew(180deg);
+    -ms-transform: skew(180deg);
+    -o-transform: skew(180deg);
+}
+
+.show .front {
+    opacity: 0;
+    z-index: -1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.back h2 {
+    font-size: 3.5rem;
+}
+
+
+.overlay {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.685);
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.modal {
+    width: 500px;
+    min-height: 300px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nome {
+    font-family: monospace;
+    font-size: 1.2rem;
+}
+
+.tempo {
+    width: 100%;
+    min-height: 150px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tempo h4 {
+    margin: 1.5rem 0;
+}
+
+.tempo h2 .nome {
+    font-size: 2.5rem;
+    font-weight: 100;
+}
+
+.next {
+    cursor: pointer;
+    background: transparent;
+    margin-top: 1.5rem;
+    padding: 10px 20px;
+    border: none;
+    transition: all 0.3s ease-in;
+    border: 2px solid #333;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.next:hover {
+    background: #333;
+    color: #fff;
+}
+
+
+footer {
+    margin-top: 1.5rem;
+    /* margin-bottom: 1rem; */
+    padding: 1rem 0.5rem;
+    text-align: center;
+    background: rgba(2, 178, 201, 0.486);
+}
+
+@media only screen and (max-width: 500px) {
+    .game {
+        grid-template-columns: repeat(3, 1fr);
+        max-height: 410px;
+    }
+
+    .game .card .back h2,
+    .game .card .front h2 {
+        font-size: 1rem;
+    }
+
+    .game p {
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    .game {
+        grid-template-columns: repeat(3, 1fr);
+        max-height: 410px;
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    .game {
+        zoom: 0.9;
+    }
+}
